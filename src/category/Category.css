@@ -1,0 +1,70 @@
+.category {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* banner style */
+.banner {
+  background: url(../img/banner-bg.jpg) center no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 200px;
+  margin: 0 auto;
+  max-width: 950px;
+}
+.banner_text {
+  background-color: #393935;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  height: 100%;
+  width: 450px;
+}
+.banner_text hr {
+  border: 1px solid #ffffff;
+  width: 100px;
+}
+.banner_text-title {
+  font-size: 30px;
+}
+.banner_text-description {
+  font-size: 14px;
+}
+
+.category-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 30px;
+}
+.category-element {
+  text-align: center;
+  width: calc(100% / 3 - 40px);
+}
+.category-element:first-child {
+  margin-right: 40px;
+}
+.category-element:last-child {
+  margin-left: 40px;
+}
+.category-element img {
+  width: 100%;
+}
+.category-element p {
+  color: #aaaaaa;
+  font-size: 18px;
+  padding-top: 10px;
+}
+.category-element h2 {
+  font-size: 16px;
+  padding: 15px 0;
+  text-transform: uppercase;
+}
+.category-element span {
+  color: #a0a0a0;
+  font-size: 20px;
+}

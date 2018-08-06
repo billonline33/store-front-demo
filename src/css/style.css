@@ -1,0 +1,238 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body,
+div,
+span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: sans-serif;
+}
+ol,
+ul {
+  list-style: none;
+}
+html,
+body {
+  color: #1d1d20;
+  font-size: 16px;
+  line-height: 1;
+}
+a,
+button,
+.popup_element-action {
+  cursor: pointer;
+}
+
+/* Header style */
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-shrink: 1;
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 950px;
+}
+.header .logo {
+  width: 20%;
+}
+.header .menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 60%;
+}
+.header .myCart {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 20%;
+}
+.header a {
+  color: #1d1d20;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.logo img {
+  max-width: 130px;
+}
+.menu ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.menu ul li {
+  padding: 0 10px;
+}
+.menu ul .dropdown-menu {
+  display: none;
+}
+.cart a {
+  padding: 0 10px;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  .header {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 30px 10px;
+    width: 100%;
+  }
+  .header .logo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .header .menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    padding-top: 10px;
+    width: 100%;
+  }
+  .header .myCart {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .header a {
+    font-size: 14px;
+  }
+  .logo img {
+    max-width: 100px;
+  }
+  .menu ul li {
+    padding: 0 5px;
+  }
+  .cart a {
+    padding: 0 10px;
+  }
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+  .header {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 30px 10px;
+    width: 100%;
+  }
+  .header .logo {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .header .menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
+    padding-top: 10px;
+    width: 100%;
+  }
+  .header .myCart {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 50%;
+  }
+  .header a {
+    font-size: 12px;
+  }
+  .logo img {
+    max-width: 100px;
+  }
+  .menu ul li {
+    padding: 0 5px;
+  }
+  .cart a {
+    padding: 0 10px;
+  }
+}
