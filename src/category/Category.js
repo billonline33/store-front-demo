@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Modal } from "react-bootstrap";
 import "./Category.css";
 import "../css/style.css";
 
@@ -6,10 +7,13 @@ class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      showCartPopup: false
     };
 
     this.handleProductClick = this.handleProductClick.bind(this);
+    this.handleCloseClick = this.handleCloseClick.bind(this);
+    this.handleMyCartClick = this.handleMyCartClick.bind(this);
   }
 
   componentDidMount() {
@@ -28,14 +32,26 @@ class Category extends Component {
     console.log("product clicked");
   }
 
+  handleCloseClick() {
+    this.setState({
+      showCartPopup: false
+    });
+  }
+
+  handleMyCartClick() {
+    this.setState({
+      showCartPopup: true
+    });
+  }
+
   render() {
-    const { products } = this.state;
+    const { products, showCartPopup } = this.state;
 
     return (
       <div className="Category">
         <div className="header">
           <div className="logo">
-            <img src="img/logo3.png" alt="logo" />
+            <img src="media/logo.png" alt="logo" />
           </div>
           <div className="menu">
             <ul>
@@ -62,7 +78,9 @@ class Category extends Component {
             </ul>
           </div>
           <div className="cart">
-            <a href="#">My Cart (2) &#9660;</a>
+            <a href="#" onClick={this.handleMyCartClick}>
+              My Cart (2) &#9660;
+            </a>
           </div>
         </div>
 
@@ -84,13 +102,13 @@ class Category extends Component {
         <div className="category">
           <div className="category-row">
             {products.map(item => {
-              console.log("item=", item);
+              const imagePath = "media\\" + item.image;
               return (
                 <div
                   className="category-element"
                   onClick={this.handleProductClick}
                 >
-                  <img src="../img/" alt="pictures" />
+                  <img src={imagePath} alt={item.title} />
                   <p>{item.brand}</p>
                   <h2>{item.title}</h2>
                   <span>${item.price}</span>
@@ -99,6 +117,53 @@ class Category extends Component {
             })}
           </div>
         </div>
+
+        <Modal show={showCartPopup} onHide={this.handleCloseClick}>
+          <Modal.Header closeButton />
+          <Modal.Body>
+            <div class="popup">
+              <div class="popup_products">
+                <div class="popup_element">
+                  <div class="popup_element-image">
+                    <img src="img/product.jpg" alt="product" />
+                  </div>
+                  <div class="popup_element-description">
+                    <h1>
+                      hand painted blue flat dish <span>&#215; 1</span>
+                    </h1>
+                    <p>Kiriko</p>
+                    <span>$28.00</span>
+                  </div>
+                  <div class="popup_element-action">&#215;</div>
+                </div>
+                <div class="popup_element">
+                  <div class="popup_element-image">
+                    <img src="img/product.jpg" alt="product" />
+                  </div>
+                  <div class="popup_element-description">
+                    <h1>
+                      hand painted blue flat dish <span>&#215; 1</span>
+                    </h1>
+                    <p>Kiriko</p>
+                    <span>$28.00</span>
+                  </div>
+                  <div class="popup_element-action">&#215;</div>
+                </div>
+              </div>
+              <hr />
+
+              <div class="popup_total">
+                <span>total</span>
+                <span>$56.00</span>
+              </div>
+
+              <div class="popup_buttons">
+                <button>View cart</button>
+                <button>Checkout</button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
       </div>
     );
   }

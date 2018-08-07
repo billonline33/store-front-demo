@@ -1,6 +1,6 @@
 .category {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 950px;
 }
 
 /* banner style */
@@ -40,6 +40,7 @@
   flex-direction: row;
   justify-content: center;
   padding-top: 30px;
+  flex-wrap: wrap;
 }
 .category-element {
   text-align: center;
@@ -61,10 +62,16 @@
 }
 .category-element h2 {
   font-size: 16px;
-  padding: 15px 0;
+  padding: 5px 0;
   text-transform: uppercase;
 }
 .category-element span {
   color: #a0a0a0;
   font-size: 20px;
+}
+
+.popup {
+  background-color: #ffffff;
+  width: 320px;
+  padding: 10px;
 }
