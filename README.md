@@ -1,3 +1,22 @@
+# Storefront Single-Page App Tasks Completed by Bill Huang
+
+
+### Run the application from the local computer, the default URL is http://localhost:3000. It opens cateogry page
+
+![](./screens/bill-cagtegory-page.png)
+
+
+### Click "MY CART" shows MY CART popup. This is a static page, no business rules have been implemented due to time limit.
+
+![](./screens/bill-cart-popup.png)
+
+### Click on one of the product image, will navigate to product page.
+
+![](./bill-product-details.png)
+
+
+
+
 # Storefront Single-Page App
 
 ### Question
