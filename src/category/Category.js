@@ -3,7 +3,34 @@ import "./Category.css";
 import "../css/style.css";
 
 class Category extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: []
+    };
+
+    this.handleProductClick = this.handleProductClick.bind(this);
+  }
+
+  componentDidMount() {
+    fetch("products.json")
+      .then(response => {
+        console.log("response=", Response);
+        return response.json();
+      })
+      .then(products => {
+        console.log("products=", products);
+        this.setState({ products });
+      });
+  }
+
+  handleProductClick() {
+    console.log("product clicked");
+  }
+
   render() {
+    const { products } = this.state;
+
     return (
       <div className="Category">
         <div className="header">
@@ -56,44 +83,20 @@ class Category extends Component {
 
         <div className="category">
           <div className="category-row">
-            <div className="category-element">
-              <img src="../img/" alt="pictures" />
-              <p>Kiriko</p>
-              <h2>Blue stripe stone ware plate</h2>
-              <span>$40.00</span>
-            </div>
-            <div className="category-element">
-              <img src="img/product.jpg" alt="pictures" />
-              <p>Kiriko</p>
-              <h2>Blue stripe stone ware plate</h2>
-              <span>$40.00</span>
-            </div>
-            <div className="category-element">
-              <img src="img/product.jpg" alt="pictures" />
-              <p>Kiriko</p>
-              <h2>Blue stripe stone ware plate</h2>
-              <span>$40.00</span>
-            </div>
-          </div>
-          <div className="category-row">
-            <div className="category-element">
-              <img src="img/product.jpg" alt="pictures" />
-              <p>Kiriko</p>
-              <h2>Blue stripe stone ware plate</h2>
-              <span>$40.00</span>
-            </div>
-            <div className="category-element">
-              <img src="img/product.jpg" alt="pictures" />
-              <p>Kiriko</p>
-              <h2>Blue stripe stone ware plate</h2>
-              <span>$40.00</span>
-            </div>
-            <div className="category-element">
-              <img src="img/product.jpg" alt="pictures" />
-              <p>Kiriko</p>
-              <h2>Blue stripe stone ware plate</h2>
-              <span>$40.00</span>
-            </div>
+            {products.map(item => {
+              console.log("item=", item);
+              return (
+                <div
+                  className="category-element"
+                  onClick={this.handleProductClick}
+                >
+                  <img src="../img/" alt="pictures" />
+                  <p>{item.brand}</p>
+                  <h2>{item.title}</h2>
+                  <span>${item.price}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
