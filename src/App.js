@@ -13,7 +13,6 @@ class App extends Component {
         <Route exact path="/" component={Category} />
         <Route path="/cart" component={Cart} />
         <Route path="/product/:id" component={Product} />
-        <Route path="/product" component={Product} />
       </div>
     );
   }

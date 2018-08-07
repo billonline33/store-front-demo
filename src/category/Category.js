@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Modal } from "react-bootstrap";
 import "./Category.css";
 import "../css/style.css";
+import ProductBox from "../component/ProductBox/ProductBox";
 
 class Category extends Component {
   constructor(props) {
@@ -11,27 +12,26 @@ class Category extends Component {
       showCartPopup: false
     };
 
-    this.handleProductClick = this.handleProductClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
     this.handleMyCartClick = this.handleMyCartClick.bind(this);
   }
 
   componentDidMount() {
-    fetch("products.json")
+    //ToDo: in a production project, I will use axios to call a get from web server.
+    //In real project, products.json should contain a key value. In my demo, since there is no key,
+    // I use index of the array instead.
+    //I may also use redux and save the result in a store for future use.
+
+    fetch("/products.json")
       .then(response => {
-        console.log("response=", Response);
         return response.json();
       })
       .then(products => {
-        console.log("products=", products);
         this.setState({ products });
       });
   }
 
-  handleProductClick() {
-    console.log("product clicked");
-  }
-
+  //ToDo: create a Header component for code re-use
   handleCloseClick() {
     this.setState({
       showCartPopup: false
@@ -51,7 +51,7 @@ class Category extends Component {
       <div className="Category">
         <div className="header">
           <div className="logo">
-            <img src="media/logo.png" alt="logo" />
+            <img src="\media\logo.png" alt="logo" />
           </div>
           <div className="menu">
             <ul>
@@ -101,19 +101,8 @@ class Category extends Component {
 
         <div className="category">
           <div className="category-row">
-            {products.map(item => {
-              const imagePath = "media\\" + item.image;
-              return (
-                <div
-                  className="category-element"
-                  onClick={this.handleProductClick}
-                >
-                  <img src={imagePath} alt={item.title} />
-                  <p>{item.brand}</p>
-                  <h2>{item.title}</h2>
-                  <span>${item.price}</span>
-                </div>
-              );
+            {products.map((item, index) => {
+              return <ProductBox productInfo={item} productKey={index} />;
             })}
           </div>
         </div>
@@ -125,7 +114,7 @@ class Category extends Component {
               <div class="popup_products">
                 <div class="popup_element">
                   <div class="popup_element-image">
-                    <img src="img/product.jpg" alt="product" />
+                    <img src="media/heme.jpg" width="200px" alt="product" />
                   </div>
                   <div class="popup_element-description">
                     <h1>
@@ -138,7 +127,11 @@ class Category extends Component {
                 </div>
                 <div class="popup_element">
                   <div class="popup_element-image">
-                    <img src="img/product.jpg" alt="product" />
+                    <img
+                      src="media/mashiko-yaki-green-small-plate.jpg"
+                      width="200px"
+                      alt="product"
+                    />
                   </div>
                   <div class="popup_element-description">
                     <h1>

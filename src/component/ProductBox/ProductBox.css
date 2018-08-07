@@ -1,0 +1,23 @@
+.category-element {
+  text-align: center;
+  width: 33%;
+  padding: 5px;
+}
+
+.category-element img {
+  width: 100%;
+}
+.category-element p {
+  color: #aaaaaa;
+  font-size: 18px;
+  padding-top: 10px;
+}
+.category-element h2 {
+  font-size: 16px;
+  padding: 5px 0;
+  text-transform: uppercase;
+}
+.category-element span {
+  color: #a0a0a0;
+  font-size: 20px;
+}

@@ -6,16 +6,32 @@ class Product extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: props.match.params.id
+      id: props.match.params.id,
+      product: {}
     };
   }
 
+  componentDidMount() {
+    //ToDo: The code below is for demo only, in the real proejct, I would use axios to make a web service call
+    //pass productId as parameter.
+    const productIndex = this.state.id;
+    fetch("/products.json")
+      .then(response => {
+        return response.json();
+      })
+      .then(products => {
+        this.setState({ product: products[productIndex] });
+      });
+  }
+
   render() {
+    const product = this.state.product;
+    const imagePath = "\\media\\" + product.image;
     return (
       <div className="product">
         <div className="header">
           <div className="logo">
-            <img src="img/logo3.png" alt="logo" />
+            <img src="\media\logo.png" alt="logo" />
           </div>
           <div className="menu">
             <ul>
@@ -51,23 +67,19 @@ class Product extends Component {
           <div className="breadcrumbs">
             <a href="#">home</a>
             <span> / </span>
-            <a href="#">plates</a>
+            <a href="#">{product.brand}</a>
             <span> / </span>
-            <a href="#">hand painted blue flat dish</a>
+            <a href="#">{product.title}</a>
           </div>
           <div className="product-container">
             <div className="product-image">
-              <img src="img/product-details.jpg" alt="product" />
+              <img src={imagePath} alt="product" />
             </div>
             <div className="product-description">
-              <p>Kiriko</p>
-              <h2>Hand Painted Blue Flat Dish</h2>
-              <span>$28.00</span>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex ea
-                et reprehenderit! Totam cum nemo consectetur sequi quo quibusdam
-                velit...
-              </p>
+              <p>{product.brand}</p>
+              <h2>{product.title}</h2>
+              <span>${product.price}</span>
+              <p>{product.description}</p>
               <hr />
               <div className="addToCart">
                 <div className="quantity">
